@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Page!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="Logo.png" alt="Logo" class="logo" />
+  </header>
+
+  <main>
+    <div class="carousel">
+      <div class="promo-wrap">
+        <div class="promo-media">
+          <button class="arrow left" onclick="prevSlide()">&#9664;</button>
+          <img id="promoImage" src="promo1.png" alt="Promo 1" />
+          <button class="arrow right" onclick="nextSlide()">&#9654;</button>
+        </div>
+        <div class="promo-info">
+          <h1 id="promoTitle">WebsiteOpen</h1>
+          <div id="promoText" class="promo-text">See the other pages of this website!.</div>
+          <button id="promoCTABtn" class="cta-button">Explore!</button>
+        </div>
+      </div>
+    </div>
+    <section class="label-section">
+      <div class="label-inner">
+        <div class="huge-label" id="hugeLabel" data-placeholder="PAGES">PAGES</div>
+
+        <div class="btn-grid">
+          <a class="action-btn" href="news.html"><span class="btn-label">News</span></a>
+          <a class="action-btn" href="socials.html"><span class="btn-label">Socials</span></a>
+          <a class="action-btn" href="projects.html"><span class="btn-label">Projects</span></a>
+          <a class="action-btn" href="contact.html"><span class="btn-label">Contact</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

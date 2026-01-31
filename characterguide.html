@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Character Guide</title>
+    <style>
+        :root{
+            --gap:12px;
+            --card-bg: rgba(255,255,255,0.03);
+            --muted: rgba(255,255,255,0.7);
+            --accent: rgba(255,215,90,0.12);
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+
+        /* Page background: dark blue -> dark yellow */
+        body{background:linear-gradient(135deg,#051127 0%, #0b2740 35%, #5a4700 70%, #2a1400 100%);color:#fff7e6}
+
+        main{max-width:980px;margin:36px auto;padding:22px}
+        h1{margin:0 0 10px;font-size:1.6rem}
+        p.lead{margin:0 0 20px;color:var(--muted)}
+
+        /* Character list: vertical buttons */
+        .char-list{display:flex;flex-direction:column;gap:12px}
+        .char-btn{
+            display:flex;align-items:center;gap:14px;padding:12px;border-radius:10px;
+            background:var(--card-bg);border:1px solid rgba(255,255,255,0.04);cursor:pointer;text-align:left;
+            transition:transform .12s ease,box-shadow .12s ease,background .12s ease;outline:none
+        }
+        .char-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(2,6,23,0.5)}
+        .char-btn:focus{box-shadow:0 0 0 3px rgba(255,215,90,0.12)}
+        .char-btn.selected{background:linear-gradient(90deg, rgba(255,215,90,0.08), rgba(255,255,255,0.02));border-color:rgba(255,215,90,0.18)}
+
+        .thumb{width:96px;height:72px;border-radius:8px;flex:0 0 96px;overflow:hidden;background:#071427;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+        .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+        .char-meta{flex:1;min-width:0}
+        .char-name{font-size:1.05rem;margin:0;color:#fff}
+        .char-sub{font-size:0.92rem;color:var(--muted);margin-top:6px}
+
+        @media (max-width:600px){.thumb{width:72px;height:56px;flex:0 0 72px}.char-name{font-size:1rem}}
+    </style>
+</head>
+<body>
+    <main role="main">
+        <h1>Character Guide</h1>
+        <p class="lead">Select a character to view details.</p>
+
+        <div class="char-list" role="list" aria-label="Characters">
+            <a class="char-btn" role="listitem" aria-label="Antichton" href="Antichton.html">
+                <div class="thumb" aria-hidden="true"><img src="Antichton.png" alt="Antichton thumbnail"></div>
+                <div class="char-meta">
+                    <div class="char-name">Antichton</div>
+                    <div class="char-sub">Semi-Antagonist</div>
+                </div>
+            </a>
+
+            <a class="char-btn" role="listitem" aria-label="Character Two" href="character-two.html">
+                <div class="thumb" aria-hidden="true"><img src="https://via.placeholder.com/320x240/ffb400/222222?text=Char+2" alt="Character Two thumbnail"></div>
+                <div class="char-meta">
+                    <div class="char-name">Character Two</div>
+                    <div class="char-sub">Ally • Placeholder</div>
+                </div>
+            </a>
+
+            <a class="char-btn" role="listitem" aria-label="Character Three" href="character-three.html">
+                <div class="thumb" aria-hidden="true"><img src="https://via.placeholder.com/320x240/3aa76d/ffffff?text=Char+3" alt="Character Three thumbnail"></div>
+                <div class="char-meta">
+                    <div class="char-name">Character Three</div>
+                    <div class="char-sub">Rival • Placeholder</div>
+                </div>
+            </a>
+
+            <a class="char-btn" role="listitem" aria-label="Character Four" href="character-four.html">
+                <div class="thumb" aria-hidden="true"><img src="https://via.placeholder.com/320x240/8b4cff/ffffff?text=Char+4" alt="Character Four thumbnail"></div>
+                <div class="char-meta">
+                    <div class="char-name">Character Four</div>
+                    <div class="char-sub">Support • Placeholder</div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // Toggle selected state for character buttons
+        document.querySelectorAll('.char-btn').forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+                document.querySelectorAll('.char-btn').forEach(t=>t.classList.remove('selected'));
+                btn.classList.add('selected');
+            });
+        });
+
+        // Keyboard accessibility: Enter/Space activates focused button
+        document.addEventListener('keydown', e=>{
+            if((e.key === 'Enter' || e.key === ' ') && document.activeElement.classList.contains('char-btn')){
+                e.preventDefault();
+                document.activeElement.click();
+            }
+        });
+    </script>
+</body>
+</html>

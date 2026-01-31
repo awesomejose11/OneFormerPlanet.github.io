@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact</title>
+    <style>
+        :root{
+            --bg1:#001f3f; /* dark blue */
+            --bg2:#b30000; /* red */
+            --card-bg: rgba(255,255,255,0.06);
+            --accent: #fff;
+        }
+        html,body{
+            height:100%;
+            margin:0;
+            font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            color:var(--accent);
+            background: linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);
+        }
+        .wrap{
+            min-height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:2rem;
+        }
+        .card{
+            max-width:720px;
+            width:100%;
+            background:var(--card-bg);
+            border-radius:12px;
+            padding:2rem;
+            box-shadow:0 8px 30px rgba(0,0,0,0.4);
+            backdrop-filter: blur(6px);
+            text-align:center;
+        }
+        h1{
+            margin:0 0 .5rem 0;
+            font-size:1.5rem;
+            letter-spacing:0.2px;
+        }
+        p{
+            margin:.25rem 0;
+            line-height:1.5;
+            color:rgba(255,255,255,0.95);
+        }
+        a.mail{
+            display:inline-block;
+            margin-top:.75rem;
+            color:#fff;
+            background:rgba(0,0,0,0.18);
+            padding:.6rem .9rem;
+            border-radius:8px;
+            text-decoration:none;
+            font-weight:600;
+        }
+        a.mail:focus, a.mail:hover{
+            transform:translateY(-2px);
+            box-shadow:0 6px 18px rgba(0,0,0,0.35);
+        }
+        @media (prefers-reduced-motion: no-preference){
+            a.mail{transition:all .18s ease}
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap" role="main">
+        <section class="card" aria-labelledby="contact-title">
+            <h1 id="contact-title">Contact</h1>
+            <p>To report bugs, send feedback, or suggest improvements to this website, please email:</p>
+            <a class="mail" href="mailto:contactoneformerplanet@gmail.com?subject=Website%20Feedback" aria-label="Email contactoneformerplanet at gmail dot com">contactoneformerplanet@gmail.com</a>
+            <p style="margin-top:1rem;font-size:.9rem;color:rgba(255,255,255,0.85)">Thank you — your input helps make the site better.</p>
+        </section>
+    </main>
+</body>
+</html>
