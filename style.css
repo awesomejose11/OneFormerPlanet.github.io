@@ -1,0 +1,212 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #021428;
+  margin: 0;
+  background: linear-gradient(135deg, #021428 0%, #052f4a 35%, #0a6b53 70%, #033d2f 100%);
+  color: #e8f6ff;
+  min-height: 100vh;
+}
+
+.logo {
+  width: 250px;
+  margin: 20px auto;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.promo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: calc(100vh - 160px);
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 28px;
+}
+
+.promo-media {
+  position: relative;
+  width: 60%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+}
+
+.promo-media img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  display: block;
+  transition: transform 400ms ease, opacity 400ms ease;
+  will-change: transform, opacity;
+  background: #fff;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.promo-info {
+  width: 36%;
+  max-width: 520px;
+  text-align: left;
+}
+
+.promo-info #promoTitle {
+  font-size: 2.2rem;
+  margin: 6px 0 12px 0;
+  line-height: 1.05;
+}
+
+.promo-text {
+  background: rgba(255,255,255,0.06);
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: #e8f6ff;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  max-height: 120px;
+  overflow: auto;
+}
+
+.cta-button {
+  background: #4dff50;
+  color: #08223a;
+  border: none;
+  padding: 12px 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Animation helper classes */
+.fade-out {
+  opacity: 0;
+  transform: translateX(-30px) scale(0.98);
+}
+.fade-in {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.6rem;
+  background: rgba(255,255,255,0.92);
+  border: none;
+  cursor: pointer;
+  color: #0b6bff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+  z-index: 5;
+}
+
+.left {
+  left: 18px;
+}
+
+.right {
+  right: 18px;
+}
+
+.nav-button {
+  margin-top: 18px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border: none;
+  background-color: rgba(255,255,255,0.95);
+  color: #0b6bff;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 600px) {
+  .promo-wrap { flex-direction: column; height: auto; }
+  .promo-media { width: 100%; max-width: none; }
+  .promo-info { width: 95%; padding: 12px 16px; }
+  .promo-info #promoTitle { font-size: 1.6rem; }
+  .arrow { width: 48px; height: 48px; font-size: 1.6rem; }
+  .promo-media img { max-height: 320px; }
+}
+
+/* feature section removed */
+
+/* Large label area below promo */
+.label-section {
+  display: flex;
+  justify-content: center;
+  padding: 18px 12px 60px 12px;
+}
+.label-section .label-inner {
+  width: min(1100px, 96vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.huge-label {
+  width: 100%;
+  height: min(70vh, 720px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 8vw, 5.2rem);
+  color: #e8f6ff;
+  background: rgba(255,255,255,0.02);
+  border-radius: 14px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+.huge-label:empty::before { content: attr(data-placeholder); color: rgba(255,255,255,0.34); }
+.btn-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.action-btn {
+  background: linear-gradient(180deg,#29a8ff,#0b4f8a);
+  color: #fff;
+  border: none;
+  padding: 16px 12px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+}
+.action-btn .btn-label { width: 100%; text-align: center; font-size: 1rem; }
+
+@media (max-width: 900px) {
+  .btn-grid { grid-template-columns: repeat(2, 1fr); }
+  .huge-label { font-size: clamp(1.8rem, 7vw, 3.6rem); height: min(56vh, 520px); }
+}
+
+@media (max-width: 420px) {
+  .btn-grid { grid-template-columns: 1fr; }
+  .action-btn { min-height: 56px; padding: 12px 10px; }
+  .huge-label { font-size: 1.6rem; height: auto; padding: 18px; }
+}

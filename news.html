@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>News</title>
+    <style>
+        :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.4;color:#0b1220}
+        body{margin:0;background:#f6f7fb;padding:24px}
+        header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+        h1{font-size:1.25rem;margin:0}
+        .controls{display:flex;gap:8px;align-items:center}
+        select,input[type=search]{padding:8px;border:1px solid #d7dbe6;border-radius:8px;background:#fff}
+        main{max-width:900px;margin:0 auto}
+        .list{display:grid;gap:12px}
+        article.card{background:#fff;padding:14px;border-radius:10px;box-shadow:0 1px 0 rgba(9,13,23,0.04);border:1px solid rgba(9,13,23,0.04)}
+        .meta{display:flex;gap:8px;align-items:center;margin-bottom:8px;font-size:.85rem;color:#475569}
+        .badge{padding:4px 8px;border-radius:999px;font-weight:600;font-size:.75rem}
+        .badge.episode{background:#eef2ff;color:#3730a3}
+        .badge.event{background:#ecfdf5;color:#065f46}
+        .badge.update{background:#fff7ed;color:#92400e}
+        h2{margin:.1rem 0 .4rem 0;font-size:1rem}
+        p{margin:0;color:#0f1724}
+        time{font-style:normal;color:inherit;opacity:.8}
+        .empty{padding:20px;text-align:center;color:#6b7280}
+        footer{margin-top:18px;text-align:center;color:#94a3b8;font-size:.85rem}
+        @media (max-width:560px){header{flex-direction:column;align-items:flex-start} .controls{width:100%;justify-content:space-between}}
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Channel News</h1>
+            <div class="controls" aria-hidden="false">
+                <label for="filter" class="sr-only">Filter</label>
+                <select id="filter" title="Filter by type">
+                    <option value="all">All</option>
+                    <option value="episode">Episode</option>
+                    <option value="event">Event</option>
+                    <option value="update">Update</option>
+                </select>
+                <input id="search" type="search" placeholder="Search titles or descriptions" aria-label="Search news" />
+            </div>
+        </header>
+
+        <section id="news" class="list" aria-live="polite">
+            <!-- Example entries (replace with real items) -->
+            <article class="card" data-type="general" data-date=".">
+                <div class="meta">
+                    <span class="badge episode">General</span>>
+                </div>
+                <h2>Website Launch</h2>
+                <p>Welcome to the official website for OneFormerPlanet's YouTube channel! As of today, the website is now public to everyone.</p>
+            </article>
+        </section>
+
+        <div id="noResults" class="empty" hidden>No news found.</div>
+
+        <footer>
+            Keep an eye out for updates on this website, etc.: <span id="lastUpdated"></span>
+        </footer>
+    </main>
+
+    <script>
+        // Minimal client filtering + last-updated
+        const list = Array.from(document.querySelectorAll('#news article.card'));
+        const filter = document.getElementById('filter');
+        const search = document.getElementById('search');
+        const noResults = document.getElementById('noResults');
+        const lastUpdated = document.getElementById('lastUpdated');
+
+        function formatLocal(dt){ return new Date(dt).toLocaleString(); }
+        function updateLastUpdated(){
+            const latest = list
+                .map(a=>a.dataset.date)
+                .filter(Boolean)
+                .sort().reverse()[0];
+            lastUpdated.textContent = latest ? formatLocal(latest) : '—';
+        }
+
+        function applyFilters(){
+            const q = search.value.trim().toLowerCase();
+            const type = filter.value;
+            let visible = 0;
+            list.forEach(item=>{
+                const isType = type==='all' || item.dataset.type===type;
+                const text = (item.querySelector('h2').textContent + ' ' + (item.querySelector('p')?.textContent||'')).toLowerCase();
+                const matches = !q || text.includes(q);
+                const show = isType && matches;
+                item.style.display = show ? '' : 'none';
+                if(show) visible++;
+            });
+            noResults.hidden = visible>0;
+        }
+
+        // Sort items by date descending on load
+        (function sortByDate(){
+            const container = document.getElementById('news');
+            list.sort((a,b)=> (b.dataset.date||'').localeCompare(a.dataset.date||''));
+            list.forEach(n=>container.appendChild(n));
+        })();
+
+        filter.addEventListener('change', applyFilters);
+        search.addEventListener('input', applyFilters);
+
+        updateLastUpdated();
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Raffle Entry — OFP SolarBalls Screening</title>
+    <style>
+        :root{
+            --bg:#071026;
+            --card:#071126;
+            --muted:#94a3b8;
+            --accent:#7c3aed;
+            --radius:12px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            color-scheme: dark;
+            color:#eaf4ff;
+        }
+        body{margin:0;padding:28px;background:linear-gradient(180deg,#041026,#071026);display:flex;justify-content:center}
+        .container{width:100%;max-width:760px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--radius);padding:20px;box-shadow:0 10px 40px rgba(2,6,23,0.6)}
+        h1{margin:0 0 8px;font-size:18px}
+        p.lead{margin:0 0 16px;color:var(--muted);font-size:13px}
+        form{display:grid;gap:12px}
+        .row{display:grid;gap:6px}
+        label{font-size:13px;color:#dbeafe;font-weight:600}
+        input[type="text"], input[type="email"], input[type="number"], select, textarea{
+            background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:inherit;font-size:14px
+        }
+        textarea{min-height:90px;resize:vertical}
+        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .inline{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .btn{background:linear-gradient(90deg,var(--accent),#4f46e5);border:none;color:white;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+        .muted{color:var(--muted);font-size:13px}
+        footer{margin-top:6px;color:var(--muted);font-size:12px}
+        @media(max-width:620px){.grid2{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="container" role="main">
+        <h1>Raffle Entry — OFP SolarBalls Screening</h1>
+        <p class="lead">Please complete the form to enter the raffle for the early screening. Required fields marked *</p>
+
+        <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
+            <input type="hidden" name="access_key" value="1aa8dd60-c756-400c-ad40-777b178dc63e">
+
+            <!-- 1 -->
+            <div class="row">
+                <label for="name">Full Name *</label>
+                <input id="name" name="name" type="text" required>
+            </div>
+
+            <!-- 2 -->
+            <div class="row">
+                <label for="email">Email Address *</label>
+                <input id="email" name="email" type="email" required>
+            </div>
+
+            <!-- 3 & 4 -->
+            <div class="grid2">
+                <div class="row">
+                    <label for="age">Age *</label>
+                    <input id="age" name="age" type="number" min="13" max="120" required>
+                </div>
+                <div class="row">
+                    <label for="timezone">Country / Timezone *</label>
+                    <input id="timezone" name="timezone" type="text" placeholder="e.g., USA — EST" required>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="row">
+                <label for="availability">Availability on April 25 (time windows you can attend) *</label>
+                <select id="availability" name="availability" required>
+                    <option value="">Select an option</option>
+                    <option>Afternoon (12:00–4:00 local)</option>
+                    <option>Early Evening (4:00–7:00 local)</option>
+                    <option>Evening (7:00–10:00 local)</option>
+                    <option>Any of the above</option>
+                </select>
+            </div>
+
+            <!-- 6 -->
+            <div class="row">
+                <label>Preferred viewing platform *</label>
+                <div class="inline" role="radiogroup" aria-label="Preferred platform">
+                    <label><input type="radio" name="platform" value="Zoom" required> Zoom</label>
+                    <label><input type="radio" name="platform" value="YouTube Live"> YouTube Live</label>
+                    <label><input type="radio" name="platform" value="Vimeo"> Vimeo</label>
+                    <label><input type="radio" name="platform" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="row">
+                <label for="experience">Have you attended previous OFP events? *</label>
+                <select id="experience" name="experience" required>
+                    <option value="">Select</option>
+                    <option>Yes — multiple times</option>
+                    <option>Yes — once</option>
+                    <option>No — first time</option>
+                </select>
+            </div>
+
+            <!-- 8 -->
+            <div class="row">
+                <label for="favorite">Who is your favorite character / moment from SolarBalls?</label>
+                <input id="favorite" name="favorite" type="text" placeholder="Optional">
+            </div>
+
+            <!-- 9 -->
+            <div class="row">
+                <label for="expectations">What are you most excited to see in Act 1? *</label>
+                <textarea id="expectations" name="expectations" required placeholder="Briefly describe what you hope to see (2–3 sentences)"></textarea>
+            </div>
+
+            <!-- 10 -->
+            <div class="row">
+                <label for="accessibility">Accessibility or accommodation needs</label>
+                <textarea id="accessibility" name="accessibility" placeholder="Captions, audio description, assistance, etc. (optional)"></textarea>
+            </div>
+
+            <!-- 11 -->
+            <div class="row">
+                <label for="feedback">Any additional comments or questions for the Q&A segment?</label>
+                <textarea id="feedback" name="feedback" placeholder="Optional"></textarea>
+            </div>
+
+            <!-- 12 -->
+            <div class="row">
+                <label for="social">Social handle (optional)</label>
+                <input id="social" name="social" type="text" placeholder="@username">
+            </div>
+
+            <!-- 13: Upload (optional) -->
+            <div class="row">
+                <label for="poster">Upload a fan art or screenshot (optional)</label>
+                <input id="poster" name="poster" type="file" accept="image/*">
+            </div>
+
+            <!-- Agreement -->
+            <div class="row">
+                <label class="muted">
+                    <input type="checkbox" name="rules" required> I confirm I am eligible to enter and agree to the raffle rules and privacy policy. *
+                </label>
+            </div>
+
+            <!-- Email opt-in -->
+            <div class="row">
+                <label class="muted">
+                    <input type="checkbox" name="optin"> I agree to receive event updates and follow-ups by email.
+                </label>
+            </div>
+
+            <div style="display:flex;gap:8px;justify-content:flex-end;align-items:center">
+                <button class="btn" type="submit">Submit Entry</button>
+            </div>
+
+            <footer>By submitting you agree to be contacted if selected. Winners will be notified by email.</footer>
+        </form>
+    </div>
+</body>
+</html>
