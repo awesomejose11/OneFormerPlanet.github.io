@@ -1,10 +1,10 @@
 const promos = [
   {
-    src: "EpisodePromo.png",
-    title: "Latest Fanshow Episode!",
-    text: "Aftermath of the Earth",
-    ctaText: "Watch Now",
-    ctaLink: "https://youtu.be/tUZv22gGZ2M?si=a6clIdG9YzPDl5js"
+    src: "movieinspring.png",
+    title: "OFP's SolarBalls Fanshow Movie!",
+    text: "Stay tuned for the upcoming release of the SolarBalls Fanshow Movie, follow here for updates!",
+    ctaText: "INFO",
+    ctaLink: "MoviePrep.html"
   },
   {
     src: "WebsitePromo.png",
