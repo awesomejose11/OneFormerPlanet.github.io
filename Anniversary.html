@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contest</title>
+    <style>
+        :root{
+            --bg-dark-1:#021028;
+            --bg-dark-2:#032a4a;
+            --accent:#ffb6c1;
+            --muted:#d1dbe6;
+            --glass: rgba(255, 255, 255, 0.04);
+            --card-shadow: 0 16px 40px rgba(0,0,0,0.45);
+        }
+
+        html,body{height:100%; margin:0; font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial; background: linear-gradient(180deg,var(--bg-dark-1),var(--bg-dark-2)); color:#ffffff}
+        /* confetti background */
+        .confetti {
+            position:fixed; left:0; top:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:0;
+        }
+        .confetti span{
+            position:absolute; width:10px; height:14px; opacity:0.95; transform:translateY(-120vh) rotate(0);
+            animation-name:fall, spin;
+            animation-iteration-count:infinite;
+            animation-timing-function:linear;
+            border-radius:2px;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+        }
+        @keyframes fall{
+            to { transform: translateY(120vh) rotate(360deg); }
+        }
+        @keyframes spin{
+            from { transform: rotate(0); }
+            to { transform: rotate(720deg); }
+        }
+
+        .page {
+            position:relative; z-index:2;
+            max-width:1100px; margin:36px auto; padding:36px; border-radius:18px;
+            background: var(--glass);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255,255,255,0.04);
+            backdrop-filter: blur(6px);
+            color: #ffffff;
+        }
+
+        .video-wrapper{ width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; box-shadow:0 10px 36px rgba(0,0,0,0.6); background: #000; border: 1px solid rgba(255,255,255,0.05) }
+        .title {
+            text-align:center; margin:36px 0 28px; font-size:clamp(36px, 12vw, 140px); font-weight:900; color:#ffffff;
+            display:flex; gap:18px; align-items:center; justify-content:center; letter-spacing: -0.02em;
+        }
+        .badge{
+            background: rgba(255,255,255,0.06); color:#fff; padding:10px 16px; border-radius:999px;
+            font-weight:800; font-size:16px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .sections{ margin-top:36px; display:grid; gap:36px; }
+        section.card{
+            background: rgba(255,255,255,0.02); padding:28px; border-radius:14px; box-shadow: 0 8px 36px rgba(0,0,0,0.45);
+        }
+        section.card h3{ margin:0 0 14px; font-size:clamp(20px,4.5vw,36px); color:#ffffff; }
+        section.card p{ margin:0; color:var(--muted); line-height:1.95; font-size:clamp(18px,2.6vw,24px); }
+
+        .join-area{ text-align:center; margin-top:28px; }
+        .btn-join{
+            background: linear-gradient(90deg,#4f8cff,#2b65ff); color:#fff; font-weight:900; padding:16px 28px; border-radius:999px;
+            border:0; cursor:pointer; font-size:20px; box-shadow: 0 12px 46px rgba(20,60,140,0.35);
+        }
+        .btn-join:hover{ transform:translateY(-3px); box-shadow: 0 20px 44px rgba(120,140,180,0.18); }
+
+        footer{ text-align:center; color:rgba(255,255,255,0.7); font-size:15px; margin-top:40px; }
+
+        /* responsive */
+        @media(min-width:900px){
+            .page{ margin-top:96px }
+        }
+
+        /* improve spacing on small screens */
+        @media(max-width:720px){
+            .sections{ gap:22px }
+            .title{ font-size:clamp(24px,10vw,80px) }
+            section.card h3{ font-size:20px }
+            section.card p{ font-size:16px }
+            .btn-join{ font-size:16px; padding:12px 18px }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti" aria-hidden="true" id="confetti"></div>
+
+    <main class="page" role="main">
+        <div class="video-wrapper">
+            <!-- Replace the src embed ID with your YouTube video ID -->
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DjP1N9l3f2o?si=hHFaimFQqgADFiP6"
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+
+        <div class="title" aria-hidden="false">
+            <span class="badge">3rd ANNIVERSARY</span>
+            <span style="font-size:20px; color:hsl(203, 79%, 89%); margin-left:6px;">Celebrate & Win — Community Contest</span>
+        </div>
+
+        <div class="sections">
+            <section id="intro" class="card">
+                <h3>1. Introduction</h3>
+                <p>Today we are celebrating the 3rd anniversary of the OneFormerPlanet community, which started when it's first video was published today back in 2023! Through the years, the channel has gained thousands of subscribers, mainly because of the SolarBalls community. We decided to host something to celebrate! I made a contest for fans of me, with exclusive rewards.</p>
+            </section>
+
+            <section id="notices" class="card">
+                <h3>2. Notices</h3>
+                <p>This contest doesn't require any purchase or subscription. Your submissions won't be shared with third parties or anyone else. There is no prizes like gift cards, cash, or anything related to travel or accommodation.</p>
+            </section>
+
+            <section id="opt1" class="card">
+                <h3>3. Animation Submission</h3>
+                <p>Submit a short animation (up to 30s) showcasing your favorite moments on my channel (Moments from live streams, videos, shorts). MP4/WebM formats preferred. Include a short description. Your animation must be about either, a fanmade story of my oc in SolarBalls, Planetballs, or CountryBalls style, or a video about recreating funny moments from one of my videos/livestreams..</p>
+            </section>
+
+            <section id="opt2" class="card">
+                <h3>4. Art/Drawing</h3>
+                <p>Design contest: Create a celebratory poster, banner, or social graphic of either, me in it celebrating the 3rd anniversary with other community members, a meme about one of my videos, or just a drawing of my OC  Submit high-resolution PNG or JPG files. (DO NOT USE AI FOR THIS OR TAKING SOMEONE ELSE'S WORK. You can take inspiration from existing designs, but noy copying the exact same thing with different elements..) </p>
+            </section>
+
+            <section id="opt3" class="card">
+                <h3>5. Positive Review</h3>
+                <p>Write a positive review, sharing what my channel means to you, how it inspired you, and what you would like to see me do in the future! (Must be professional, English only.) </p>
+            </section>
+
+            <section id="prizes" class="card">
+                <h3>6. Prizes</h3>
+                <p>There will be 3 winners of this contest. You will receive a special art tutorial on how to draw in SolarBalls style, a personalized wallpaper with ur prompts and OC, and an early-access look at a top-secret project I have been secretly working on.</p>
+            </section>
+
+            <section id="join" class="card">
+                <h3>7. Join now</h3>
+                <p>Ready to celebrate? Click the button below to enter your submission and join the anniversary festivities. Quick form — takes less than 10 minutes.</p>
+                <div class="join-area">
+                    <button class="btn-join" id="joinBtn" type="button">Join the Contest</button>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            Contest period: [April 2nd, 2026] — [April 9th, 2026] • Good luck and thank you for 3 amazing years!
+        </footer>
+    </main>
+
+    <script>
+        // Generate lightweight confetti pieces
+        (function(){
+            const colors = ['#ff9ec5','#ffd6a5','#9fd7ff','#c3ffb2','#ffe3f2','#d6c5ff'];
+            const confetti = document.getElementById('confetti');
+            const total = 28;
+            for(let i=0;i<total;i++){
+                const el = document.createElement('span');
+                const size = Math.floor(Math.random()*12) + 6;
+                el.style.width = size + 'px';
+                el.style.height = (size+4) + 'px';
+                el.style.background = colors[i % colors.length];
+                el.style.left = Math.random()*100 + '%';
+                el.style.top = (Math.random()*-100) + 'vh';
+                el.style.opacity = 0.9;
+                const delay = Math.random()*5;
+                const dur = 6 + Math.random()*6;
+                el.style.animationDelay = delay + 's';
+                el.style.animationDuration = dur + 's, ' + (4 + Math.random()*4) + 's';
+                el.style.transform = 'translateY(-120vh) rotate(' + (Math.random()*360) + 'deg)';
+                confetti.appendChild(el);
+            }
+
+            // Join button behavior - open the Google Forms submission link in a new tab
+            document.getElementById('joinBtn').addEventListener('click', function(){
+                const url = "https://docs.google.com/forms/d/e/1FAIpQLSfOFYIda7xhHNSNLmzCTi1SQaaAir2tfpdLDlnLPPnlbjZS9Q/viewform?usp=sharing";
+                window.open(url, '_blank', 'noopener,noreferrer');
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 const promos = [
   {
-    src: "movieinspring.png",
-    title: "OFP's SolarBalls Fanshow Movie!",
-    text: "Stay tuned for the upcoming release of the SolarBalls Fanshow Movie, follow here for updates!",
-    ctaText: "INFO",
-    ctaLink: "MoviePrep.html"
+    src: "PartyStart.png",
+    title: "OFP's 3rd Anniversary!",
+    text: "Celebrate the 3rd anniversary of OneFormerPlanet's first YouTube video with a special contest with creative prizes! Check out the video for details.",
+    ctaText: "Enter Contest",
+    ctaLink: "Anniversary.html"
   },
   {
     src: "WebsitePromo.png",
