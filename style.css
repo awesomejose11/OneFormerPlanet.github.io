@@ -3,7 +3,7 @@ body {
   text-align: center;
   background-color: #021428;
   margin: 0;
-  background: linear-gradient(135deg, #021428 0%, #052f4a 35%, #0a6b53 70%, #033d2f 100%);
+  background: linear-gradient(135deg, #021428 0%, #4a0a05 35%, #0a0c6b 70%, #033d2f 100%);
   color: #e8f6ff;
   min-height: 100vh;
 }
@@ -101,30 +101,30 @@ body {
 
 .arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2.6rem;
-  background: rgba(255,255,255,0.92);
+  bottom: 18px;
+  top: auto;
+  transform: translateY(0);
+  font-size: 2.2rem;
+  background: rgba(255,255,255,0.6);
   border: none;
   cursor: pointer;
   color: #0b6bff;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
   z-index: 5;
+  opacity: 0.75;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
-.left {
-  left: 18px;
-}
+.arrow:hover { opacity: 1; transform: translateY(-6px); }
 
-.right {
-  right: 18px;
-}
+.left { left: 20px; }
+.right { right: 20px; }
 
 .nav-button {
   margin-top: 18px;
