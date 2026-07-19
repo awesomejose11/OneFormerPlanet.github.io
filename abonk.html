@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ABOC</title>
+    <style>
+        :root{
+            --bg-dark-1:#0a7c1d;
+            --bg-dark-2:#08ad8c;
+            --accent:#ffb6c1;
+            --muted:#d1dbe6;
+            --glass: rgba(255, 255, 255, 0.04);
+            --card-shadow: 0 16px 40px rgba(0,0,0,0.45);
+        }
+
+        html,body{height:100%; margin:0; font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial; background: linear-gradient(180deg,var(--bg-dark-1),var(--bg-dark-2)); color:#ffffff}
+        /* confetti background */
+        .confetti {
+            position:fixed; left:0; top:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:0;
+        }
+        .confetti span{
+            position:absolute; width:10px; height:14px; opacity:0.95; transform:translateY(-120vh) rotate(0);
+            animation-name:fall, spin;
+            animation-iteration-count:infinite;
+            animation-timing-function:linear;
+            border-radius:2px;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+        }
+        @keyframes fall{
+            to { transform: translateY(120vh) rotate(360deg); }
+        }
+        @keyframes spin{
+            from { transform: rotate(0); }
+            to { transform: rotate(720deg); }
+        }
+
+        .page {
+            position:relative; z-index:2;
+            max-width:1100px; margin:36px auto; padding:36px; border-radius:18px;
+            background: var(--glass);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255,255,255,0.04);
+            backdrop-filter: blur(6px);
+            color: #ffffff;
+        }
+
+        .video-wrapper{ width:100%; aspect-ratio:16/9; border-radius:12px; overflow:hidden; box-shadow:0 10px 36px rgba(0,0,0,0.6); background: #000; border: 1px solid rgba(255,255,255,0.05) }
+        .title {
+            text-align:center; margin:36px 0 28px; font-size:clamp(36px, 12vw, 140px); font-weight:900; color:#ffffff;
+            display:flex; gap:18px; align-items:center; justify-content:center; letter-spacing: -0.02em;
+        }
+        .badge{
+            background: rgba(255,255,255,0.06); color:#fff; padding:10px 16px; border-radius:999px;
+            font-weight:800; font-size:16px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .sections{ margin-top:36px; display:grid; gap:36px; }
+        section.card{
+            background: rgba(255,255,255,0.02); padding:28px; border-radius:14px; box-shadow: 0 8px 36px rgba(0,0,0,0.45);
+        }
+        section.card h3{ margin:0 0 14px; font-size:clamp(20px,4.5vw,36px); color:#ffffff; }
+        section.card p{ margin:0; color:var(--muted); line-height:1.95; font-size:clamp(18px,2.6vw,24px); }
+
+        .join-area{ text-align:center; margin-top:28px; }
+        .btn-join{
+            background: linear-gradient(90deg,#4fff84,#129223); color:#0ae268; font-weight:900; padding:16px 28px; border-radius:999px;
+            border:0; cursor:pointer; font-size:20px; box-shadow: 0 12px 46px rgba(20,60,140,0.35);
+        }
+        .btn-join:hover{ transform:translateY(-3px); box-shadow: 0 20px 44px rgba(120,140,180,0.18); }
+
+        footer{ text-align:center; color:rgba(255,255,255,0.7); font-size:15px; margin-top:40px; }
+
+        /* responsive */
+        @media(min-width:900px){
+            .page{ margin-top:96px }
+        }
+
+        /* improve spacing on small screens */
+        @media(max-width:720px){
+            .sections{ gap:22px }
+            .title{ font-size:clamp(24px,10vw,80px) }
+            section.card h3{ font-size:20px }
+            section.card p{ font-size:16px }
+            .btn-join{ font-size:16px; padding:12px 18px }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti" aria-hidden="true" id="confetti"></div>
+
+    <main class="page" role="main">
+        <div class="video-wrapper">
+            <!-- Replace the src embed ID with your YouTube video ID -->
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/aFoFKltJfuE?si=NSiSp1_eeahkgVUM"
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+
+        <div class="title" aria-hidden="false">
+            <span class="badge">A   new   show   launches   soon!</span>
+            <span style="font-size:20px; color:hsl(203, 79%, 89%); margin-left:6px;">Summer 2026</span>
+        </div>
+
+        <div class="sections">
+            <section id="intro" class="card">
+                <h3>What is A Big Open Cosmos?</h3>
+                <p>A Big Open Cosmos, abbreviated as ABOC, is an indie animated YouTube series. It is heavily ispired by the PlanetBalls Community. The show is aiming for a comediec side of genre, while also maintaing great direction.</p>
+            </section>
+
+            <section id="notices" class="card">
+                <h3>The Creator</h3>
+                <p>The Person behind the series is a person known as OneFormerPlanet, also behind the creator of CandyBalls. With CandyBalls being on hiatus for the summer, we can take this time to develop a new project with the same passion.</p>
+            </section>
+
+            <section id="opt1" class="card">
+                <h3>Why Support Now?</h3>
+                <p>The goal of ABOC is to make it seperate from the team of CandyBalls. Basically, there will be 2 different teams for each individual project, while making sure we are able to animate and keep both shows consistent with uploads, even with more important things in our life coming up. ABOC has been planned since November 2025, and the best part, the first 5 episodes are just in production. For now, working for the show is a hobby, but soon we would like to compensate people who help us with production, which is why we need you! Any general support is good, wether your sharing it to a friend who might be intrested, promoting the project, or simply just subscribing, anything would help launch the show they way we are heading!</p>
+            </section>
+
+            <section id="opt2" class="card">
+                <h3>Drawbacks</h3>
+                <p>Although it doesn't look to hard to make, do remember we have lives in the outside world, you also might be wondering: Why only one owner? What if something happens? We will be looking for people to hire if the first episode does succeed, meaning that we will try our best not to be transparent about anything that happens.  </p>
+            </section>
+
+            <section id="join" class="card">
+                <h3>Closing Statement</h3>
+                <p>Thank you for doing your best to spread the show more publicly, in other words.. see you July 30th for the first episode of A Big Open Cosmos!</p>
+            </section>
+        </div>
+    </main>
+    </script>
+</body>
+</html>

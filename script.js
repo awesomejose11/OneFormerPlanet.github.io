@@ -1,10 +1,10 @@
 const promos = [
   {
-    src: "PartyStart.png",
-    title: "OFP's 3rd Anniversary!",
-    text: "Celebrate the 3rd anniversary of OneFormerPlanet's first YouTube video with a special contest with creative prizes! Check out the video for details.",
-    ctaText: "Enter Contest",
-    ctaLink: "Anniversary.html"
+    src: "ABOCPromo.png",
+    title: "A New Show on The Way!",
+    text: "Learn more about A Big Open Cosmos, an upcoming show!",
+    ctaText: "Explore",
+    ctaLink: "abonk.html"
   },
   {
     src: "WebsitePromo.png",
